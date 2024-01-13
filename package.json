@@ -1,0 +1,26 @@
+{
+  "name": "cc2lc-backend",
+  "version": "1.0.0",
+  "description": "Backend for the CC2LC app",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedDocMD/cc2lc-backend.git"
+  },
+  "author": "Deep Majumder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RedDocMD/cc2lc-backend/issues"
+  },
+  "homepage": "https://github.com/RedDocMD/cc2lc-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
