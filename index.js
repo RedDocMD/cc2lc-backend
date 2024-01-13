@@ -40,11 +40,13 @@ async function main() {
     const db = await openDb();
 
     app.get('/months', asyncHandler(async (req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         const months = await getMonths(db);
         res.send(months);
     }));
 
     app.get('/games/:year/:month', asyncHandler(async (req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
         const month = req.params['month'];
         const year = req.params['year'];
         const games = await getGamesOfMonth(db, month, year);
