@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const https = require('node:https');
-const fs = require('node:fs');
+const http = require('node:http');
 const sqlite3 = require('sqlite3').verbose();
 const sqlite = require('sqlite');
 const asyncHandler = require('express-async-handler');
@@ -52,16 +51,10 @@ async function main() {
         res.send(games);
     }));
 
-    const keyPath = process.env['TLS_KEY_PATH'];
-    const certPath = process.env['TLS_CERT_PATH'];
-    const httpsOptions = {
-        key: fs.readFileSync(keyPath),
-        cert: fs.readFileSync(certPath),
-    }
-
-    const port = 443;
-    const server = https.createServer(httpsOptions, app);
-    server.listen(port);
+    const host = '127.0.0.1';
+    const port = 8080;
+    const server = http.createServer(app);
+    server.listen(port, host, () => { console.log(`Listening on ${host}:${port}`) });
 }
 
 main()
